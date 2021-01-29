@@ -1,4 +1,4 @@
-from app.projects.models import response, request
+from backend.app.models import response, request
 
 
 def get(sent: request.Sent):

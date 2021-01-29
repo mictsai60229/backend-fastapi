@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 
-from app.projects.models import response, request
-from app.projects.controllers import sentiment_controller
+from backend.app.models import response, request
+from backend.app.controllers import sentiment_controller
 
 router = APIRouter()
 

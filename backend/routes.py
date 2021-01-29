@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
-from app.dependencies import get_auth_key
-from app.projects import urls
+from backend.dependencies import get_auth_key
+from backend.app import urls
 
 router = APIRouter(
     prefix="/api",
