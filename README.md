@@ -1,10 +1,4 @@
 # fastapi structure
 
-
-database: sqlacademy, pydantic
-routes: 
-exceptions: https://fastapi.tiangolo.com/tutorial/handling-errors/
-logs: logging
-tests: starlette https://fastapi.tiangolo.com/tutorial/testing/?h=+test
-models: pydantic
-services: logic
+## hackmd
+https://hackmd.io/@jP6DHtQGSayNz2eVZ28JwA/Hk56GI61d
