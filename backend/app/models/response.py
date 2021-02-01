@@ -1,6 +1,8 @@
 from typing import Dict, Optional
 from pydantic import BaseModel
 
+from backend.app.models.common import Sentiment
+
 
 class Metadata(BaseModel):
     status: str = "0000"
@@ -10,11 +12,6 @@ class Metadata(BaseModel):
 class BaseResponse(BaseModel):
     metadata: Metadata = Metadata()
     data: Optional[Dict] = None
-
-
-class Sentiment(BaseModel):
-    sentiment: str
-    probability: float
 
 class SentimentResponse(BaseResponse):
     data: Sentiment

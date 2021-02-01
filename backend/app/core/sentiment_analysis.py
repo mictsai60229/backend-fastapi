@@ -7,8 +7,6 @@ def predict(text):
     result = PREDICTOR.predict(text)
     return result_format(result)
 
-
-
 def result_format(result):
 
     formatted_result = {}
