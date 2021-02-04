@@ -1,10 +1,9 @@
 from backend.app.core.sentiment_analysis import predict
-from backend.app.models.common import Sent
-from backend.app.models.response import SentimentResponse
+from backend.app.formatters.sentiment import SentimentResponse, SentimentRequest
 
-def get(sent: Sent):
+def get(request: SentimentRequest):
 
-    result = predict(sent.sent)
-
+    result = predict(request.sent)
     sentiment_response = SentimentResponse(data=result)
+
     return sentiment_response
