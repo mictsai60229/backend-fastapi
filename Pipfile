@@ -9,6 +9,7 @@ uvicorn = {extras = ["standard"], version = "*"}
 sqlalchemy = "*"
 allennlp = "*"
 allennlp-models = "*"
+python-json-logger = "*"
 
 [dev-packages]
 

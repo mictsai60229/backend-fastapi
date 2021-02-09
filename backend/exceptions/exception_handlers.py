@@ -10,15 +10,16 @@ from config.response import STATUS
 
 async def http_exception_handler(request: Request, exc: HTTPException) -> JSONResponse:
     headers = getattr(exc, "headers", None)
-    metadata = getattr(exc, "headers", None)
+    metadata = getattr(exc, "metadata", None)
     metadata = metadata or {'status': '9999', 'desc': STATUS['9999']}
+    data = getattr(exc, "data", None)
     
     if headers:
         return JSONResponse(
-            {"metadata": metadata, "data": exc.data}, status_code=exc.status_code, headers=headers
+            {"metadata": metadata, "data": data}, status_code=exc.status_code, headers=headers
         )
     else:
-        return JSONResponse({"metadata": metadata, "data": exc.data}, status_code=exc.status_code)
+        return JSONResponse({"metadata": metadata, "data": data}, status_code=exc.status_code)
 
 
 async def request_validation_exception_handler(
