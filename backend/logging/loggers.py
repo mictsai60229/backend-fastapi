@@ -9,12 +9,15 @@ class CustomJsonFormatter(JsonFormatter):
     def parse(self):
         return self._fmt
 
-def _set_request_logger():
+def get_rotated_handaler():
+    return logging.handlers.RotatingFileHandler(settings.log_file, maxBytes=settings.max_bytes, backupCount=settings.backup_count)
+
+def set_request_logger():
     #create logger name fastapi.request
     logger = logging.getLogger('fastapi.request')
     logger.setLevel(logging.INFO)
     #create handler
-    file_handler = logging.FileHandler(settings.log_file)
+    file_handler = get_rotated_handaler()
     file_handler.setLevel(logging.INFO)
     #create formatter
     request_fields = ['system', 'request', 'trace_info', 'log_label', 'datatime', 'message']
@@ -26,12 +29,12 @@ def _set_request_logger():
     
     return logger
 
-def _set_response_logger():
+def set_response_logger():
      #create logger name fastapi.response
     logger = logging.getLogger('fastapi.response')
     logger.setLevel(logging.INFO)
     #create handler
-    file_handler = logging.FileHandler(settings.log_file)
+    file_handler = get_rotated_handaler()
     file_handler.setLevel(logging.INFO)
     #create formatter
     request_fields = ['system', 'request', 'response', 'trace_info', 'log_label', 'datatime', 'message']
@@ -42,7 +45,7 @@ def _set_response_logger():
 
 
 def get_loggers():
-    _set_request_logger()
-    _set_response_logger()
+    set_request_logger()
+    set_response_logger()
 
 
