@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List
+from typing import List, Optional
 import os
 
 from pydantic import BaseModel
@@ -24,9 +24,22 @@ class SystemInfomation(BaseModel):
 
 class TraceInformation(BaseModel):
     run_time: int
-    
 
-class RequestFormat(BaseModel):
+class SimpleRequestData(BaseModel):
+    method: str
+    route: str
+    ip: str
+    uuid : str
+
+class ResponseData(BaseModel):
+    http_status: str
+    body: str
+    headers: str
+    meta_status: str
+    meta_description: Optional[str]
+
+
+class RequestLogFormatter(BaseModel):
     message: str
     system: SystemInfomation
     request: RequestData
@@ -34,4 +47,14 @@ class RequestFormat(BaseModel):
     log_label: str  = "REQUEST"
     data_time: str = str(datetime.now())
 
-    #fields: RequestFields
+
+
+class ResponseLogFormatter(BaseModel):
+    message: str
+    system: SystemInfomation
+    request: SimpleRequestData
+    response: ResponseData
+    trace_info : TraceInformation
+    log_label: str  = "RESPONSE"
+    data_time: str = str(datetime.now())
+    
