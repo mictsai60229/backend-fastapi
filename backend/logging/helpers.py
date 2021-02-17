@@ -39,7 +39,7 @@ async def log_request(request: Request) -> RequestLogFormatter:
     )
 
     REQUEST_LOGGER.info(request_log.dict())
-    print(request_log.dict())
+
     return request_log
 
 async def log_response(request: Request, response: Response, request_log: RequestLogFormatter) -> ResponseLogFormatter:
@@ -76,5 +76,5 @@ async def log_response(request: Request, response: Response, request_log: Reques
     )
 
     RESPONSE_LOGGER.info(response_log.dict())
-    print(response_log.dict())
+
     return response_log
