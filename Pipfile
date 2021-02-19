@@ -10,6 +10,7 @@ sqlalchemy = "*"
 allennlp = "*"
 allennlp-models = "*"
 python-json-logger = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
