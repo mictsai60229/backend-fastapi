@@ -13,4 +13,7 @@ class User(Base):
     fullname = Column(String)
     nickname = Column(String)
 
+    def __str__(self):
+        return "<({name})>".format(name=name)
+
     
