@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends
-from backend.dependencies import get_auth_key
+from backend.dependencies import handle_auth_key
 from backend.app import urls
 
 router = APIRouter(
     prefix="/api",
     tags = ["api"],
-    dependencies=[Depends(get_auth_key)]
+    dependencies=[Depends(handle_auth_key)]
 )
 
 # include projects 
