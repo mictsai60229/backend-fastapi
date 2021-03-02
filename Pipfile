@@ -13,6 +13,7 @@ python-json-logger = "*"
 psycopg2-binary = "*"
 aiohttp = "*"
 prometheus-client = "*"
+gunicorn = "*"
 
 [dev-packages]
 

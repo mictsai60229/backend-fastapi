@@ -21,7 +21,7 @@ class PrometheusMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next: RequestResponseEndpoint) -> Response:
 
         method, route = request.method, request['path']
-        if route == "/metrics":
+        if route == "/metrics/":
             return await call_next(request)
 
         before_time = time.perf_counter()

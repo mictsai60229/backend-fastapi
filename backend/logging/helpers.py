@@ -130,5 +130,4 @@ async def log_exception(request: Request, exception: Any) -> None:
 
 
     if slack.settings.slack_is_log:
-        print(slack.settings.slack_bot_token)
         await post_message_slack(json.dumps(exception_log.dict()))
