@@ -12,6 +12,7 @@ allennlp-models = "*"
 python-json-logger = "*"
 psycopg2-binary = "*"
 aiohttp = "*"
+prometheus-client = "*"
 
 [dev-packages]
 
