@@ -1,3 +1,4 @@
+import asyncio
 import logging
 import json
 import uuid
@@ -7,11 +8,15 @@ import traceback
 import sys
 
 from fastapi import Request, Response
+from slack_sdk.web.async_client import AsyncWebClient
 
 from backend.logging.formatters import RequestData, SystemInfomation, BaseTraceInformation, RequestLogFormatter
 from backend.logging.formatters import ResponseRequestData, ResponseData, ResponseLogFormatter
 from backend.logging.formatters import ExceptionRequestData, ExceptionTraceInformation, ExceptionInformation, ExceptionLogFormatter
 from backend.logging.loggers import LOGGERS
+from config import slack
+
+SLACK_CLIENT = AsyncWebClient(token=slack.settings.slack_bot_token)
 
 async def log_request(request: Request) -> RequestLogFormatter:
     
@@ -80,6 +85,8 @@ async def log_response(request: Request, response: Response, request_log: Reques
 
     return response_log
 
+async def post_message_slack(message: str) -> None:
+    await SLACK_CLIENT.chat_postMessage(channel=slack.settings.slack_channel, text=message)
 
 async def log_exception(request: Request, exception: Any) -> None:
 
@@ -120,3 +127,8 @@ async def log_exception(request: Request, exception: Any) -> None:
     )
 
     LOGGERS['expection'].info(exception_log.dict())
+
+
+    if slack.settings.slack_is_log:
+        print(slack.settings.slack_bot_token)
+        await post_message_slack(json.dumps(exception_log.dict()))

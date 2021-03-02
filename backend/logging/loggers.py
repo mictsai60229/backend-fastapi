@@ -10,7 +10,7 @@ class CustomJsonFormatter(JsonFormatter):
         return self._fmt
 
 def get_rotated_handaler():
-    return logging.handlers.RotatingFileHandler(settings.log_file, maxBytes=settings.max_bytes, backupCount=settings.backup_count)
+    return logging.handlers.RotatingFileHandler(settings.logging_file, maxBytes=settings.logging_max_bytes, backupCount=settings.logging_backup_count)
 
 def set_request_logger():
     #create logger name fastapi.request
