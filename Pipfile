@@ -12,6 +12,7 @@ psycopg2-binary = "*"
 prometheus-client = "*"
 gunicorn = "*"
 aiohttp = "*"
+slack-sdk = "*"
 
 [dev-packages]
 
