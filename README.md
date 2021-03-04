@@ -11,18 +11,20 @@ Before starting the project, you should install `python3.7`. Other python 3.x ve
 Pyenv lets you control different version of python in your computer.
 Try [pyenv](https://github.com/pyenv/pyenv) to install `python3.7`.
 
-## Pipenv
-Pipenv equals to `pip` + `virtualenv`. Install with Python and pip.
+## Poetry
+Install [Poetry](https://python-poetry.org/docs/)
 ```sh
-$ pip install pipenv
+$ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 ```
+Open a new shell after installing poetry
+
 Install dependency
 ```sh
-$ pipenv install
+$ poetry install
 ```
 Open virtaul enviroment shell
 ```sh
-$ pipenv shell
+$ poetry shell
 ```
 
 ## Run server with uvicorn
