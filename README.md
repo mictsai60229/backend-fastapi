@@ -16,7 +16,7 @@ Pipenv equals to `pip` + `virtualenv`. Install with Python and pip.
 ```sh
 $ pip install pipenv
 ```
-Install the dependency
+Install dependency
 ```sh
 $ pipenv install
 ```
