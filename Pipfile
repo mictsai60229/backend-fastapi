@@ -7,13 +7,11 @@ name = "pypi"
 fastapi = "*"
 uvicorn = {extras = ["standard"], version = "*"}
 sqlalchemy = "*"
-allennlp = "*"
-allennlp-models = "*"
 python-json-logger = "*"
 psycopg2-binary = "*"
-aiohttp = "*"
 prometheus-client = "*"
 gunicorn = "*"
+aiohttp = "*"
 
 [dev-packages]
 

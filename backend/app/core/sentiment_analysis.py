@@ -1,18 +1,13 @@
-from allennlp.predictors.predictor import Predictor
-import allennlp_models.tagging
-
-PREDICTOR = Predictor.from_path("https://storage.googleapis.com/allennlp-public-models/basic_stanford_sentiment_treebank-2020.06.09.tar.gz")
+import random
 
 def predict(text):
-    result = PREDICTOR.predict(text)
-    return result_format(result)
+    return fake_predict()
 
-def result_format(result):
+def fake_predict():
 
     formatted_result = {}
-    idx, probs = max(enumerate(result['probs']), key=lambda x: x[1])
-    formatted_result['sentiment'] = str(idx)
-    formatted_result['probability'] = probs
+    formatted_result['sentiment'] = str(random.randint(0,1))
+    formatted_result['probability'] = random.uniform(0.5, 1.0)
     
     return formatted_result
 
